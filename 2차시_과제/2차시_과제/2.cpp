@@ -12,36 +12,50 @@
 //
 //    return 0;
 //}
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//
+//void hanoi(int n, int start, int sub, int end) {
+//    if (n == 1) {
+//        printf("%d %d\n", start, end);
+//        return;
+//    }
+//
+//    hanoi(n - 1, start, end, sub);
+//    printf("%d %d\n", start, end);
+//    hanoi(n - 1, sub, start, end);
+//}
+//
+//int main() {
+//    int n;
+//    long long k = 1;
+//
+//    scanf("%d", &n);
+//
+//    
+//    for (int i = 0; i < n; i++) {
+//        k = k * 2;
+//    }
+//
+//    k = k - 1; // 2^n - 1
+//
+//    printf("%lld\n", k);
+//
+//    hanoi(n, 1, 2, 3);
+//
+//    return 0;
+//}
 #include <stdio.h>
 
-void hanoi(int n, int start, int sub, int end) {
-    if (n == 1) {
-        printf("%d %d\n", start, end);
-        return;
-    }
-
-    hanoi(n - 1, start, end, sub);
-    printf("%d %d\n", start, end);
-    hanoi(n - 1, sub, start, end);
-}
-
 int main() {
-    int n;
-    long long k = 1;
+	int arr[2][3] = { {1, 2, 3}, {4, 5, 6} };
 
-    scanf("%d", &n);
+	printf("%d %d\n", *(*(arr + 1) + 0), *(*(arr + 1) + 1));
 
-    
-    for (int i = 0; i < n; i++) {
-        k = k * 2;
-    }
+	for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
+		for (int j = 0; j < sizeof(arr[0]) / sizeof(int); j++)
+			printf("%d ", *(*(arr + i) + j));
+		printf("\n");
+	}
 
-    k = k - 1; // 2^n - 1
-
-    printf("%lld\n", k);
-
-    hanoi(n, 1, 2, 3);
-
-    return 0;
 }
